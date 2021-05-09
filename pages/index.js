@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styled from 'styled-components'
 import { Layout } from '../layouts/Layout'
+import { getPostsData } from '../lib/posts';
 
 export default function Home() {
   return (
@@ -20,12 +21,12 @@ export default function Home() {
           <p>本文</p>
           <p>本文</p>
           <p>本文</p>
-        <p>本文</p>
-        <p>本文</p>
-        <p>本文</p>
-        <p>本文</p>
-        <p>本文</p>
-        <p>本文</p>
+          <p>本文</p>
+          <p>本文</p>
+          <p>本文</p>
+          <p>本文</p>
+          <p>本文</p>
+          <p>本文</p>
           <p>本文</p>
         </main>
       </Layout>
