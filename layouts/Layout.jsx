@@ -5,7 +5,7 @@ export const Layout = ({ children }) => {
     <StyledWrapper>
       <StyledHeader>Next Practice Blog</StyledHeader>
       <StyledMain>{children}</StyledMain>
-      <StyledFooter>&copy; Sample Inc.</StyledFooter>
+      <StyledFooter>&copy; noname</StyledFooter>
     </StyledWrapper>
   );
 };
@@ -27,5 +27,6 @@ const StyledMain = styled.main`
 `;
 
 const StyledFooter = styled.footer`
-  background-color: #ddd;
+  background-color: rgba(227, 193, 187, 1);
+  padding: 0.5rem;
 `;

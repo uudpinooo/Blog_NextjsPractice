@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Layout } from '../layouts/Layout'
 import { getPostsData } from '../lib/posts';
 
-export default function Home() {
+export default function Home({ postsData }) {
   return (
     <>
       <Head>
@@ -18,22 +18,40 @@ export default function Home() {
             width={200}
             height={200}
           />
-          <p>本文</p>
-          <p>本文</p>
-          <p>本文</p>
-          <p>本文</p>
-          <p>本文</p>
-          <p>本文</p>
-          <p>本文</p>
-          <p>本文</p>
-          <p>本文</p>
-          <p>本文</p>
+          <StyledDiv>
+            {postsData.map(data =>
+              <StyledPost key={data.id}>
+                <p>{data.title}</p>
+                <p>{data.date}</p>
+              </StyledPost>
+            )}
+          </StyledDiv>
         </main>
       </Layout>
     </>
   )
 }
 
+export const getStaticProps = () => {
+  const postsData = getPostsData();
+  return {
+    props: {
+      postsData,
+    }
+  }
+}
+
+const StyledDiv = styled.div`
+  margin: 2rem auto;
+`;
+
+const StyledPost = styled.div`
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+`;
+
 const StyledImg = styled(Image)`
-  border-radius: 50%50%;
+  border-radius: 50%;
 `;
