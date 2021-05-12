@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import styled from 'styled-components'
 import { Layout } from '../layouts/Layout'
-import { getPostsData } from '../lib/posts';
+import { getAllPostsData } from '../lib/posts';
 
 export default function Home({ postsData }) {
   return (
@@ -21,7 +22,9 @@ export default function Home({ postsData }) {
           <StyledDiv>
             {postsData.map(data =>
               <StyledPost key={data.id}>
-                <p>{data.title}</p>
+                <Link href={`/posts/${data.id}`} passHref>
+                  <StyledLink>{data.title}</StyledLink>
+                </Link>
                 <p>{data.date}</p>
               </StyledPost>
             )}
@@ -33,7 +36,7 @@ export default function Home({ postsData }) {
 }
 
 export const getStaticProps = () => {
-  const postsData = getPostsData();
+  const postsData = getAllPostsData();
   return {
     props: {
       postsData,
@@ -50,6 +53,17 @@ const StyledPost = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+`;
+
+const StyledLink = styled.a`
+  display: flex;
+  align-items: center;
+  color: #000;
+  text-decoration: none;
+  &:hover {
+    cursor: pointer;
+    font-weight: bold;
+  }
 `;
 
 const StyledImg = styled(Image)`

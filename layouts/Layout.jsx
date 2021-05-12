@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styled from 'styled-components'
 
 export const Layout = ({ children }) => {
@@ -29,4 +30,5 @@ const StyledMain = styled.main`
 const StyledFooter = styled.footer`
   background-color: rgba(227, 193, 187, 1);
   padding: 0.5rem;
+  margin-top: 1rem;
 `;
